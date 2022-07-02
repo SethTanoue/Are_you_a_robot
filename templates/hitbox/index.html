@@ -1,0 +1,41 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}Welcome{% endblock title %}
+
+{% block content %}
+<main>
+    <h1>Hitbox</h1>
+    <p class="fs-5 col-md-8">Hitbox will test your reaction speed and precision. The faster you can press can hit the better.</p>
+
+    <div class="mb-5">
+      <a href="game.html" class="btn btn-primary btn-lg px-4">Start</a>
+    </div>
+
+    <hr class="col-3 col-md-2 mb-5">
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if leaderboard|length < 1 %}
+        <tr>
+          <td colspan="3" center>Be the first!</td>
+        </tr>
+        {% else %}
+        {% for l in leaderboard %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{l.name|title}}</td>
+          <td>{{l.Time|title}}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+      </tbody>
+    </table>
+  </main>
+{% endblock content %}

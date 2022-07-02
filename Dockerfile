@@ -1,9 +1,8 @@
 FROM python:3.9.13
 
-WORKDIR /usr/src/app/
+ENV PYTHONUNBUFFERED=1
 
-COPY scripts/install_dependencies.sh /usr/src/app/scripts/install_dependencies.sh
-COPY requirements.txt /usr/src/app/
-RUN scripts/install_dependencies.sh
+WORKDIR /django
 
-COPY . /usr/src/app/
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt

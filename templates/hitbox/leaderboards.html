@@ -1,0 +1,66 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}Leaderboard{% endblock title %}
+
+{% block content %}
+<main>
+  <form>
+    <div class="mb-3">
+      
+      <div class="container">
+        <div class="row">
+        <h1>Time: </h1>
+        </div>
+        <div class="row">
+          <div class="col">
+
+      <label for="exampleInputEmail1" class="form-label">Name</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+  </div>
+    <div class="col">
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Email</label>
+      <input type="email" class="form-control" id="exampleInputPassword1">
+    </div>
+  </div>
+</div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<hr class="col-3 col-md-2 mb-5">
+
+<div class="mb-5">
+  <a href="../examples/" class="btn btn-primary btn-lg px-4">Try Again</a>
+</div>
+
+  <hr class="col-3 col-md-2 mb-5">
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>test</td>
+        <td>test</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>test</td>
+        <td>test</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">test</td>
+      </tr>
+    </tbody>
+  </table>
+</main>
+{% endblock content %}

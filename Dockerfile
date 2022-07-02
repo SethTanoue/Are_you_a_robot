@@ -1,8 +1,15 @@
-FROM python:3.9.13
+FROM python:3.11.0b3-bullseye
 
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /django
+WORKDIR /app
 
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
+COPY requirements.txt /app/requirements.txt
+
+RUN set -ex \
+    && pip install --upgrade pip \
+    && pip install -r /app/requirements.txt
+
+ADD . .
+
+CMD gunicorn myapp.wsgi:application --bind 0.0.0.0:$PORT

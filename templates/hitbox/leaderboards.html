@@ -37,20 +37,19 @@
       </tr>
     </thead>
     <tbody>
+      {% if leaderboard|length < 1 %}
       <tr>
-        <th scope="row">1</th>
-        <td>test</td>
-        <td>test</td>
+        <td colspan="3" center>Be the first!</td>
       </tr>
+      {% else %}
+      {% for l in leaderboard %}
       <tr>
-        <th scope="row">2</th>
-        <td>test</td>
-        <td>test</td>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{l.name|title}}</td>
+        <td>{{l.Time|title}}</td>
       </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">test</td>
-      </tr>
+      {% endfor %}
+      {% endif %}
     </tbody>
   </table>
 </main>

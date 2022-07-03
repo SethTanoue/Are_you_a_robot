@@ -1,33 +1,29 @@
+<!╌ This is the leaderboard frontend ╌>
 {% extends "./base.html" %}
 {% load static %}
 {% block title %}Leaderboard{% endblock title %}
-
 {% block content %}
 <main>
   <form>
     <div class="mb-3">
-      <div class="container">
-        <div class="row">
+    <div class="container">
+      <div class="row">
         <h1>Time: </h1>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="exampleInputEmail1" class="form-label">Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
-        <div class="row">
-          <div class="col">
-      <label for="exampleInputEmail1" class="form-label">Name</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    </div>
-</div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-</div>
-
-<hr class="col-3 col-md-2 mb-5">
-
-<div class="mb-5">
-  <a href="/game" class="btn btn-primary btn-lg px-4">Try Again</a>
-</div>
-
+  </div>
   <hr class="col-3 col-md-2 mb-5">
-
+  <div class="mb-5">
+    <a href="/game" class="btn btn-primary btn-lg px-4">Try Again</a>
+  </div>
+  <hr class="col-3 col-md-2 mb-5">
   <table class="table table-striped">
     <thead>
       <tr>

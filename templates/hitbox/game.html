@@ -1,48 +1,41 @@
+<!╌ This is the game frontend ╌>
 {% extends "./base.html" %}
 {% load static %}
 {% block title %}Game{% endblock title %}
-
 {% block content %}
+<!╌js for the game ╌>
 <script>
   window.onload = function() {
     const countDown = Math.floor(Math.random() * 8) * 1000;
-    var timeout = false;
-
+    var timeout = false; 
+    
+    // count down timer for game area
     this.timeoutID = setTimeout(function(){
       timeout = true;
     }, countDown);
-
+  
+    // turn game area green to start clock
     $("#gameArea").click(function(){
       if(timeout == true){
         var start = new Date;
         $("#gameArea").css("background-color: rgb(187, 246, 187) !important");
         $("#gameArea").click(function(){
         var time = new Date - start;
-        
+        // pass time to backend
         alert("Congradulations!\n Your time is " + time + "ms");
         $(location).prop('href', '/leaderboard');
         });
       } 
-      else{
+      else{ // clicked too soon
         clearTimeout(this.timeoutID);
         alert("Too Soon!");
         $(location).prop('href', '/leaderboard');
       }
     });
-
-      var start = new Date;
-      $("#gameArea").css("background-color: rgb(187, 246, 187)");
-      $("#gameArea").click(function(){
-        var time = new Date - start;
-        alert("Congradulations!\n Your time is " + time + "ms");
-        $(location).prop('href', '/leaderboard');
-      });
   }
 </script>
-  <main>
-   <div id="gameArea">
-   </div>
-  </main>
+<main>
+  <div id="gameArea">
+  </div>
+</main>
 {% endblock content %}
-
-
